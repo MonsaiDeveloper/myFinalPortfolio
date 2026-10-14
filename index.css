@@ -259,6 +259,8 @@ html:not(.h-active) .h-track{max-width:1320px; margin:0 auto;}
 .ow-idx{font-size:.72rem; color:var(--muted);}
 .ow-kind{font-size:.68rem; color:var(--muted); text-align:right;}
 .ow-row p{grid-column:2 / 4; color:var(--muted); max-width:60ch; font-size:.95rem; margin-top:10px;}
+.ow-link{color:var(--text); border-bottom:1px solid var(--line); white-space:nowrap; transition:color .3s, border-color .3s;}
+.ow-link:hover{color:var(--accent); border-color:var(--accent);}
 .ow-media{grid-column:2 / 4; margin-top:20px; max-width:720px;}
 .ow-media img{display:block; width:100%; height:auto; border-radius:12px; border:1px solid var(--line);}
 .ow-media-grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:12px;}
