@@ -2,13 +2,11 @@
   const root = document.documentElement;
   const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const animate = !!(window.gsap && window.ScrollTrigger) && !reduceMotion;
-  const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
   if (animate) {
     root.classList.add('has-gsap');
     gsap.registerPlugin(ScrollTrigger);
   }
-  root.classList.add('is-loading');
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   if (!location.hash) window.scrollTo(0, 0);
 
@@ -40,7 +38,6 @@
     lenis.on('scroll', ScrollTrigger.update);
     gsap.ticker.add(time => lenis.raf(time * 1000));
     gsap.ticker.lagSmoothing(0);
-    lenis.stop();
   }
 
   // ---------------------------------------------------------------
@@ -127,20 +124,11 @@
   }
 
   // ---------------------------------------------------------------
-  // Splash + hero intro
+  // Hero intro
   // ---------------------------------------------------------------
-  const splash = document.getElementById('splash');
-  const splashNum = document.getElementById('splashNum');
-  const splashBar = document.getElementById('splashBar');
-  const wait = ms => new Promise(r => setTimeout(r, ms));
-  const pageLoaded = new Promise(r => document.readyState === 'complete' ? r() : window.addEventListener('load', r, { once: true }));
   const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
 
-  function finishLoading(){
-    splash.classList.add('done');
-    root.classList.remove('is-loading');
-    root.classList.add('ready');
-    if (lenis) lenis.start();
+  function jumpToHash(){
     if (animate) ScrollTrigger.refresh();
     if (location.hash) {
       const t = document.querySelector(location.hash);
@@ -148,71 +136,22 @@
     }
   }
 
-  let heroChars = [];
   if (animate) {
+    let heroChars = [];
     document.querySelectorAll('.hero [data-split="chars"]').forEach(el => { heroChars = heroChars.concat(split(el, 'chars')); });
     gsap.set(heroChars, { yPercent: 115 });
     gsap.set('[data-hero-fade]', { opacity: 0, y: 30 });
     gsap.set(nav, { yPercent: -100, opacity: 0 });
-  }
 
-  function heroIntro(){
-    return gsap.timeline()
-      .to(heroChars, { yPercent: 0, duration: 1.4, ease: 'expo.out', stagger: 0.035 })
-      .to(nav, { yPercent: 0, opacity: 1, duration: 1.1, ease: 'expo.out', clearProps: 'transform,opacity' }, 0.3)
-      .to('[data-hero-fade]', { opacity: 1, y: 0, duration: 1.2, ease: 'expo.out', stagger: 0.08 }, 0.35)
-      .add(() => root.classList.add('ready'), 0.4);
-  }
-
-  if (animate) {
-    const nameChars = split(splash.querySelector('[data-splash-name]'), 'chars');
-    const words = Array.from(splash.querySelectorAll('.sw-track span'));
-    const counter = { v: 0 };
-    const render = () => {
-      splashNum.textContent = Math.round(counter.v);
-      splashBar.style.transform = 'scaleX(' + (counter.v / 100) + ')';
-    };
-
-    gsap.set(nameChars, { yPercent: 115 });
-    gsap.to(nameChars, { yPercent: 0, duration: 1.2, ease: 'expo.out', stagger: 0.06, delay: 0.15 });
-
-    gsap.set(words, { y: 0, yPercent: 110 });
-    const wordTl = gsap.timeline({ delay: 0.3 });
-    // Slot-machine: each word leaves exactly as the next one arrives, moving together
-    const step = 0.6, dur = 0.5;
-    words.forEach((w, i) => {
-      wordTl.fromTo(w, { yPercent: 110 }, { yPercent: 0, duration: dur, ease: 'power3.inOut' }, i * step);
-      if (i < words.length - 1) wordTl.to(w, { yPercent: -110, duration: dur, ease: 'power3.inOut' }, (i + 1) * step);
+    fontsReady.then(() => {
+      gsap.timeline()
+        .to(heroChars, { yPercent: 0, duration: 1.2, ease: 'expo.out', stagger: 0.03 })
+        .to(nav, { yPercent: 0, opacity: 1, duration: 1, ease: 'expo.out', clearProps: 'transform,opacity' }, 0.2)
+        .to('[data-hero-fade]', { opacity: 1, y: 0, duration: 1, ease: 'expo.out', stagger: 0.08 }, 0.3);
+      jumpToHash();
     });
-
-    gsap.to(counter, { v: 84, duration: 1.9, ease: 'power2.out', onUpdate: render });
-
-    let exited = false;
-    function exitSplash(){
-      if (exited) return;
-      exited = true;
-      gsap.killTweensOf(counter);
-      gsap.to(counter, {
-        v: 100, duration: 0.55, ease: 'power2.inOut', onUpdate: render,
-        onComplete(){
-          gsap.timeline({ onComplete: finishLoading })
-            .to('.splash-inner > *', { yPercent: -60, opacity: 0, duration: 0.7, ease: 'power3.in', stagger: 0.05 })
-            .to('.splash-cols i', { yPercent: -100, duration: 1.1, ease: 'expo.inOut', stagger: 0.07 }, '-=0.25')
-            .add(heroIntro(), '-=0.75');
-        }
-      });
-    }
-    Promise.race([Promise.all([pageLoaded, fontsReady, wait(2200)]), wait(5000)]).then(exitSplash);
-    splash.addEventListener('click', exitSplash);
   } else {
-    // No GSAP / reduced motion: brief fade
-    Promise.race([pageLoaded, wait(2500)]).then(() => {
-      splashNum.textContent = '100';
-      splashBar.style.transform = 'scaleX(1)';
-      splash.style.transition = 'opacity .5s ease';
-      splash.style.opacity = '0';
-      setTimeout(finishLoading, reduceMotion ? 50 : 500);
-    });
+    jumpToHash();
   }
 
   // ---------------------------------------------------------------
@@ -240,7 +179,6 @@
       gsap.to('.h-progress i', { scaleX: 1, ease: 'none', scrollTrigger: { trigger: pin, start: 'top top', end: () => '+=' + dist(), scrub: true, invalidateOnRefresh: true } });
       gsap.utils.toArray('.sys-card').forEach(card => {
         gsap.from(card, { y: 80, rotate: 3, ease: 'none', scrollTrigger: { trigger: card, containerAnimation: tween, start: 'left right', end: 'left 55%', scrub: true } });
-        gsap.from(card.querySelector('.sys-num'), { xPercent: 70, opacity: 0, ease: 'none', scrollTrigger: { trigger: card, containerAnimation: tween, start: 'left 95%', end: 'left 35%', scrub: true } });
       });
       return () => root.classList.remove('h-active');
     });
@@ -284,30 +222,6 @@
 
     // Timeline line draws with scroll
     gsap.to('.tl-line i', { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.timeline', start: 'top 70%', end: 'bottom 70%', scrub: true } });
-
-    // Giant footer name
-    gsap.fromTo('[data-giant]', { yPercent: 35, letterSpacing: '0.08em' }, { yPercent: 0, letterSpacing: '-0.03em', ease: 'none', scrollTrigger: { trigger: '.contact', start: 'center bottom', end: 'bottom bottom', scrub: true } });
-
-    // Velocity-reactive marquee
-    const marquee = document.querySelector('[data-marquee]');
-    if (marquee) {
-      let x = 0, dir = -1, boost = 0;
-      ScrollTrigger.create({
-        start: 0, end: 'max',
-        onUpdate: self => {
-          dir = self.direction === 1 ? -1 : 1;
-          boost = Math.min(Math.abs(self.getVelocity()) / 150, 22);
-        }
-      });
-      gsap.ticker.add(() => {
-        const half = marquee.scrollWidth / 2;
-        x += dir * (0.6 + boost);
-        boost *= 0.92;
-        if (x <= -half) x += half;
-        if (x > 0) x -= half;
-        gsap.set(marquee, { x, skewX: -dir * boost * 0.25 });
-      });
-    }
 
     // Active nav link (created after the pin so positions include its spacer)
     sections.forEach(sec => ScrollTrigger.create({
@@ -363,52 +277,6 @@
   });
 
   // ---------------------------------------------------------------
-  // Local time in Baybay
-  // ---------------------------------------------------------------
-  const timeEl = document.getElementById('localTime');
-  if (timeEl) {
-    const fmt = new Intl.DateTimeFormat('en-US', { timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', hour12: false });
-    const tick = () => { timeEl.textContent = fmt.format(new Date()); };
-    tick();
-    setInterval(tick, 30000);
-  }
-
-  // ---------------------------------------------------------------
-  // Custom cursor + magnetic buttons (fine pointers only)
-  // ---------------------------------------------------------------
-  if (animate && finePointer) {
-    const cursor = document.querySelector('.cursor');
-    const dot = cursor.querySelector('.cursor-dot');
-    const ring = cursor.querySelector('.cursor-ring');
-    const label = cursor.querySelector('.cursor-label');
-    const dx = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3' });
-    const dy = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3' });
-    const rx = gsap.quickTo(ring, 'x', { duration: 0.5, ease: 'power3' });
-    const ry = gsap.quickTo(ring, 'y', { duration: 0.5, ease: 'power3' });
-    window.addEventListener('mousemove', e => { cursor.classList.add('moved'); dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY); }, { passive: true });
-    document.addEventListener('mouseleave', () => cursor.classList.add('hidden'));
-    document.addEventListener('mouseenter', () => cursor.classList.remove('hidden'));
-    document.addEventListener('mouseover', e => {
-      const t = e.target.closest('a, button, [data-cursor], .ow-row, .sys-card');
-      const text = t && t.getAttribute('data-cursor');
-      cursor.classList.toggle('hover', !!t && !text);
-      cursor.classList.toggle('label', !!text);
-      if (text) label.textContent = text;
-    });
-
-    document.querySelectorAll('.magnetic').forEach(el => {
-      const xTo = gsap.quickTo(el, 'x', { duration: 0.6, ease: 'power3' });
-      const yTo = gsap.quickTo(el, 'y', { duration: 0.6, ease: 'power3' });
-      el.addEventListener('mousemove', e => {
-        const r = el.getBoundingClientRect();
-        xTo((e.clientX - r.left - r.width / 2) * 0.3);
-        yTo((e.clientY - r.top - r.height / 2) * 0.35);
-      });
-      el.addEventListener('mouseleave', () => { xTo(0); yTo(0); });
-    });
-  }
-
-  // ---------------------------------------------------------------
   // Interactive skills keyboard
   // ---------------------------------------------------------------
   const skbBoard = document.getElementById('skbBoard');
@@ -421,7 +289,7 @@
 
     function pressKey(el){
       el.classList.add('pressed');
-      skbCaption.innerHTML = '<span class="who">' + el.dataset.tech + '</span>' + el.dataset.quip;
+      skbCaption.innerHTML = '<span class="who">' + el.dataset.tech + '</span>' + (el.dataset.quip || '');
       skbCaption.classList.add('show');
       clearTimeout(captionTimer);
       captionTimer = setTimeout(() => skbCaption.classList.remove('show'), 1900);

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Paul Simon Soliano — Full-Stack Engineer</title>
-<meta name="description" content="Paul Simon Soliano (Monsai) — full-stack software engineer and web designer building civic systems for local government in Baybay City, Philippines.">
+<title>Paul Simon Soliano | Full-Stack Engineer</title>
+<meta name="description" content="Paul Simon Soliano (Monsai), a full-stack software engineer and web designer building civic systems for local government in Baybay City, Philippines.">
 <meta name="theme-color" content="#0B0C10">
 <script>
   // Set theme before first paint so there's no flash
@@ -15,7 +15,7 @@
     document.documentElement.classList.add('js');
   })();
 </script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0C10'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%23C9F24D'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230B0C10'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='40' fill='%238AB4F8'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
@@ -23,37 +23,11 @@
 </head>
 <body>
 
-<!-- ============ SPLASH ============ -->
-<div class="splash" id="splash" aria-hidden="true">
-  <div class="splash-cols"><i></i><i></i><i></i><i></i><i></i></div>
-  <div class="splash-inner">
-    <div class="splash-top mono">
-      <span>P. SOLIANO</span>
-      <span class="hide-sm">FULL-STACK ENGINEER</span>
-      <span>©2026</span>
-    </div>
-    <div class="splash-center">
-      <div class="splash-name serif" data-splash-name>Monsai</div>
-      <div class="splash-words mono">
-        <span class="sw-label">NOW</span>
-        <span class="sw-track"><span>DESIGNING</span><span>BUILDING</span><span>SHIPPING</span><span>READY</span></span>
-      </div>
-    </div>
-    <div class="splash-bottom">
-      <div class="splash-meta mono">BAYBAY CITY, PH<br>10.68°N, 124.80°E</div>
-      <div class="splash-count"><span id="splashNum">0</span><span class="pct">%</span></div>
-    </div>
-    <div class="splash-bar"><i id="splashBar"></i></div>
-  </div>
-</div>
-
-<div class="grain" aria-hidden="true"></div>
 <div class="scroll-progress" aria-hidden="true"><i id="scrollBar"></i></div>
-<div class="cursor" aria-hidden="true"><div class="cursor-dot"></div><div class="cursor-ring"><span class="cursor-label"></span></div></div>
 
 <!-- ============ NAV ============ -->
 <nav class="nav" id="nav">
-  <a href="#top" class="brand" data-cursor><span class="dot"></span>P. SOLIANO</a>
+  <a href="#top" class="brand"><span class="dot"></span>P. SOLIANO</a>
   <div class="navlinks" id="navlinks">
     <a href="#about"><span class="mono">01</span>About</a>
     <a href="#systems"><span class="mono">02</span>Systems</a>
@@ -63,11 +37,11 @@
     <a href="#contact"><span class="mono">06</span>Contact</a>
   </div>
   <div class="nav-right">
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" data-cursor>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
       <svg id="iconSun" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
       <svg id="iconMoon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
     </button>
-    <a href="SOLIANO_RESUME.pdf" download="SOLIANO_RESUME.pdf" class="nav-resume mono magnetic" aria-label="Download resume">Resume ↓</a>
+    <a href="SOLIANO_RESUME.pdf" download="SOLIANO_RESUME.pdf" class="nav-resume mono" aria-label="Download resume">Resume ↓</a>
     <button class="navmenu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
   </div>
 </nav>
@@ -78,8 +52,7 @@
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-meta mono" data-hero-fade>
-      <span class="coord"><span class="pulse"></span>BAYBAY CITY, PHILIPPINES · 10.68°N, 124.80°E</span>
-      <span class="hide-sm">LOCAL TIME <span id="localTime">--:--</span> PHT</span>
+      <span>Based in Baybay City, Leyte</span>
     </div>
 
     <h1 class="hero-title" aria-label="Paul Simon Soliano">
@@ -93,28 +66,11 @@
         <div class="role">Full-Stack Software Engineer &amp; Web Designer</div>
       </div>
       <div class="hero-lede" data-hero-fade>
-        <p>I design and build the systems local government units and companies run on — tracking, monitoring, ticketing, registries — from React interfaces down to Laravel APIs.</p>
+        <p>I design and build the systems local government units and companies run on, like tracking, monitoring, ticketing and registries. I work on everything from the React interface down to the Laravel API.</p>
         <div class="cta-row">
-          <a href="#systems" class="btn btn-primary magnetic" data-cursor="View"><span>View systems built</span><span class="arr">→</span></a>
-          <a href="#contact" class="btn btn-ghost magnetic"><span>Get in touch</span></a>
+          <a href="#systems" class="btn btn-primary"><span>View systems built</span><span class="arr">→</span></a>
+          <a href="#contact" class="btn btn-ghost"><span>Get in touch</span></a>
         </div>
-      </div>
-      <div class="hero-map" data-hero-fade aria-hidden="true">
-        <svg viewBox="0 0 400 400">
-          <line class="edge" x1="90" y1="110" x2="210" y2="70"/>
-          <line class="edge" x1="210" y1="70" x2="320" y2="140"/>
-          <line class="edge" x1="90" y1="110" x2="120" y2="240"/>
-          <line class="edge" x1="120" y1="240" x2="260" y2="290"/>
-          <line class="edge" x1="260" y1="290" x2="320" y2="140"/>
-          <g class="node"><circle class="ring" cx="90" cy="110" r="6" stroke="#2FB6A8"/><circle cx="90" cy="110" r="6" fill="#2FB6A8"/></g>
-          <g class="node"><circle class="ring" cx="210" cy="70" r="6" stroke="#EFA23D" style="animation-delay:.4s"/><circle cx="210" cy="70" r="6" fill="#EFA23D"/></g>
-          <g class="node"><circle class="ring" cx="320" cy="140" r="6" stroke="#5B6EF5" style="animation-delay:.8s"/><circle cx="320" cy="140" r="6" fill="#5B6EF5"/></g>
-          <g class="node"><circle class="ring" cx="120" cy="240" r="6" stroke="#E2694B" style="animation-delay:1.1s"/><circle cx="120" cy="240" r="6" fill="#E2694B"/></g>
-          <g class="node"><circle class="ring" cx="260" cy="290" r="6" stroke="#2FB6A8" style="animation-delay:1.4s"/><circle cx="260" cy="290" r="6" fill="#2FB6A8"/></g>
-        </svg>
-        <div class="scanline"></div>
-        <span class="hm-label tl mono">SYS_MAP.INIT</span>
-        <span class="hm-label br mono">4 UNITS ONLINE</span>
       </div>
     </div>
 
@@ -127,28 +83,16 @@
   </div>
 </header>
 
-<!-- ============ MARQUEE ============ -->
-<div class="marquee" aria-hidden="true">
-  <div class="marquee-track" data-marquee>
-    <div class="marquee-group">
-      <span>React</span><em>✦</em><span class="serif ital">Laravel</span><em>✦</em><span>TypeScript</span><em>✦</em><span class="serif ital">Civic Tech</span><em>✦</em><span>MySQL</span><em>✦</em><span class="serif ital">System Design</span><em>✦</em><span>Vue</span><em>✦</em><span class="serif ital">Figma</span><em>✦</em>
-    </div>
-    <div class="marquee-group">
-      <span>React</span><em>✦</em><span class="serif ital">Laravel</span><em>✦</em><span>TypeScript</span><em>✦</em><span class="serif ital">Civic Tech</span><em>✦</em><span>MySQL</span><em>✦</em><span class="serif ital">System Design</span><em>✦</em><span>Vue</span><em>✦</em><span class="serif ital">Figma</span><em>✦</em>
-    </div>
-  </div>
-</div>
-
 <!-- ============ ABOUT ============ -->
 <section id="about" class="about">
   <div class="wrap">
     <div class="sec-label mono reveal"><span>(01)</span> About</div>
-    <p class="about-statement" data-scrub-words>These aren't demo projects — they're systems <span class="serif ital accent">real offices depend on</span> every day. Dependable, understandable to non-technical staff, and built to hold up under real usage.</p>
+    <p class="about-statement" data-scrub-words>These aren't demo projects. They're systems <span class="serif ital accent">real offices depend on</span> every day. Dependable, understandable to non-technical staff, and built to hold up under real usage.</p>
 
     <div class="about-grid">
       <div class="about-nums">
         <div class="about-num-card reveal">
-          <div class="about-num" data-target="5">0</div>
+          <div class="about-num" data-target="4">0</div>
           <div class="about-num-label mono">YEARS SHIPPING SOFTWARE</div>
         </div>
         <div class="about-num-card reveal">
@@ -161,10 +105,10 @@
         </div>
       </div>
       <div class="about-text">
-        <p class="reveal">I'm Paul — most people know me as Monsai. I'm a full-stack engineer and web designer based in Baybay City, Philippines, working mainly with React on the frontend and Laravel on the backend.</p>
-        <p class="reveal">Most of my recent work has been building systems for local government: tracking documents, monitoring flood risk, running port ticketing, and registering pets city-wide. These aren't demo projects — they're systems real offices depend on every day, which means they have to be dependable, understandable to non-technical staff, and built to hold up under real usage.</p>
-        <p class="reveal">Before that, I built authentication tooling and a virtual touring platform, and designed and developed websites for travel and pest-control businesses — so I'm comfortable moving between backend systems work and front-facing design.</p>
-        <p class="reveal">I hold a BS in Information Technology from Western Leyte College of Ormoc, where my thesis project was an online business permit system — my first taste of building software for local government, before it became most of my day job.</p>
+        <p class="reveal">I'm Paul, but most people know me as Monsai. I'm a full-stack engineer and web designer based in Baybay City, Philippines, working mainly with React on the frontend and Laravel on the backend.</p>
+        <p class="reveal">Most of my recent work has been building systems for local government: tracking documents, handling emergency reports and alerts, running port ticketing, and registering pets city-wide. Real offices use these every day, so they need to be dependable and easy for non-technical staff to pick up.</p>
+        <p class="reveal">Before that, I built authentication tooling and a virtual touring platform, and designed and developed websites for travel and pest control businesses, so I'm comfortable moving between backend systems work and front-facing design.</p>
+        <p class="reveal">I hold a BS in Information Technology from Western Leyte College of Ormoc, where my thesis project was an online business permit system. That was my first time building software for local government, and now it's most of my day job.</p>
       </div>
     </div>
   </div>
@@ -177,37 +121,40 @@
       <div class="h-intro">
         <div class="sec-label mono"><span>(02)</span> Systems</div>
         <h2 class="sec-title" data-split="words">Civic systems, <span class="serif ital">in production</span></h2>
-        <p class="sec-sub">Three systems built for Baybay City's local government — each one replacing a manual, paper-based process with something residents and staff actually rely on.</p>
+        <p class="sec-sub">Systems I've built for Baybay City's local government. Each one replaced a manual, paper-based process with something residents and staff actually rely on.</p>
         <div class="h-hint mono"><span>SCROLL</span><i></i></div>
       </div>
 
       <article class="sys-card" style="--sys:#2FB6A8">
-        <div class="sys-num serif">01</div>
+        <figure class="sys-shot"><img src="images/dts-dashboard.jpg" alt="Document Tracking System dashboard showing documents grouped by age" loading="lazy"></figure>
         <div class="sys-body">
-          <div class="sys-top mono"><span class="sys-id">SYS-01 · DOCS</span><span class="sys-status"><span class="d"></span>DEPLOYED</span></div>
+          <div class="sys-top mono"><span class="sys-id">WEB APP</span><span class="sys-status"><span class="d"></span>IN USE</span></div>
           <h3>Document Tracking System</h3>
-          <p>Gives government staff a single place to log, route, and check the status of official documents as they move between offices — replacing manual logbooks with a searchable, auditable trail.</p>
+          <p>Staff log official documents here and route them between offices. Every document gets a tracking number (like DTS-2026-000005), the dashboard groups everything by age so stuck paperwork is easy to spot, and offices file delay memos when something runs late. It replaced the old manual logbooks.</p>
           <div class="tagrow"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">MySQL</span></div>
         </div>
       </article>
 
       <article class="sys-card" style="--sys:#EFA23D">
-        <div class="sys-num serif">02</div>
+        <figure class="sys-shot sys-shot-phones">
+          <img src="images/pos-login.jpg" alt="PPA Baybay POS sign-in screen" loading="lazy">
+          <img src="images/pos-main.jpg" alt="PPA Baybay POS pass invoice screen with vehicle and passenger options" loading="lazy">
+        </figure>
         <div class="sys-body">
-          <div class="sys-top mono"><span class="sys-id">SYS-02 · PORT-POS</span><span class="sys-status"><span class="d"></span>DEPLOYED</span></div>
-          <h3>PPA Baybay District POS</h3>
-          <p>A point-of-sale and ticketing system for the Philippine Ports Authority's Baybay District, tracking vehicles and passengers in and out of port in real time and reconciling total sales automatically.</p>
-          <div class="tagrow"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">Ticketing</span></div>
+          <div class="sys-top mono"><span class="sys-id">ANDROID APP</span><span class="sys-status"><span class="d"></span>IN USE</span></div>
+          <h3>PPA Baybay POS</h3>
+          <p>The app gate staff at the Philippine Ports Authority's Baybay port use to issue port user's passes. They pick a vehicle (₱12) or passenger (₱6) pass, the app works out the VAT and prints the receipt on the spot, and at the end of the shift it prints a summary so the day's sales add up without manual counting.</p>
+          <div class="tagrow"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">Android</span><span class="tag">Receipt printing</span></div>
         </div>
       </article>
 
       <article class="sys-card" style="--sys:#E2694B">
-        <div class="sys-num serif">03</div>
+        <figure class="sys-shot"><img src="images/baywatch.jpg" alt="BâyWatch landing page with live alerts on a phone" loading="lazy"></figure>
         <div class="sys-body">
-          <div class="sys-top mono"><span class="sys-id">SYS-03 · BAYBANTAY</span><span class="sys-status"><span class="d"></span>DEPLOYED</span></div>
-          <h3>Baybantay</h3>
-          <p>Flood-risk monitoring across Baybay City. Residents submit real-time reports when flooding hits their area, routing directly to the CDRRMO so response teams can act immediately instead of waiting on delayed word-of-mouth.</p>
-          <div class="tagrow"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">Geo / Reporting</span></div>
+          <div class="sys-top mono"><span class="sys-id">WEB + MOBILE</span><span class="sys-status"><span class="d"></span>IN USE</span></div>
+          <h3>BâyWatch</h3>
+          <p>Emergency reporting and official alerts for Baybay City. Residents in all 92 barangays can send 9 kinds of reports, like floods, fires and accidents, which go to CDRRMO and the 8 offices that respond. CDRRMO sends official alerts back out in 3 languages, and residents can answer "I'm safe" or "I need help".</p>
+          <div class="tagrow"><span class="tag">React</span><span class="tag">Laravel</span><span class="tag">Reporting</span><span class="tag">Alerts</span></div>
         </div>
       </article>
     </div>
@@ -263,25 +210,25 @@
     <div class="sec-head">
       <div class="sec-label mono reveal"><span>(04)</span> Timeline</div>
       <h2 class="sec-title" data-split="words">Experience</h2>
-      <p class="sec-sub reveal">Where the work above actually happened.</p>
+      <p class="sec-sub reveal">Where I've worked so far.</p>
     </div>
 
     <div class="timeline">
       <div class="tl-line" aria-hidden="true"><i></i></div>
       <div class="tl-item reveal">
-        <div class="tl-dates mono">JUN 2024 — PRESENT</div>
+        <div class="tl-dates mono">JUN 2024 to PRESENT</div>
         <div class="tl-main">
           <h3>Software Engineer</h3>
           <div class="tl-co">LGU Baybay · Baybay City, Leyte, PH</div>
           <ul>
-            <li>Designed and developed the Document Tracking System, PPA POS, and the weather/flood monitoring system</li>
+            <li>Designed and developed the Document Tracking System, PPA POS, and BâyWatch, the city's emergency reporting system</li>
             <li>Built a website for the city's Athletic Association and 3D models for merchandise</li>
             <li>Videographer and video editor for the Lihok Baybay media team</li>
           </ul>
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-dates mono">JAN 2024 — APR 2024</div>
+        <div class="tl-dates mono">JAN 2024 to APR 2024</div>
         <div class="tl-main">
           <h3>Web Developer</h3>
           <div class="tl-co">AMDH Advertising Agency · BGC, Taguig City, PH</div>
@@ -291,7 +238,7 @@
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-dates mono">MAY 2022 — NOV 2023</div>
+        <div class="tl-dates mono">MAY 2022 to NOV 2023</div>
         <div class="tl-main">
           <h3>Software Engineer</h3>
           <div class="tl-co">Revolution of Kitten, Inc. · Cebu, PH</div>
@@ -302,7 +249,7 @@
         </div>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-dates mono">2019 — 2024</div>
+        <div class="tl-dates mono">2019 to 2024</div>
         <div class="tl-main">
           <h3>BS in Information Technology</h3>
           <div class="tl-co">Western Leyte College of Ormoc</div>
@@ -320,7 +267,7 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="sec-label mono reveal"><span>(05)</span> Stack</div>
-      <h2 class="sec-title" data-split="words">What I reach for <span class="serif ital">day to day</span></h2>
+      <h2 class="sec-title" data-split="words">Tools I <span class="serif ital">use</span></h2>
     </div>
 
     <div class="stackgrid">
@@ -359,24 +306,24 @@
     </div>
 
     <div class="skb-wrap reveal">
-      <div class="skb-hint mono">⌨ PRESS A KEY — SKILLS RESPOND</div>
+      <div class="skb-hint mono">⌨ PRESS A KEY TO TRY IT</div>
       <div class="skb-board" id="skbBoard">
       <div class="skb-row">
-        <button class="key" data-key="Q" data-tech="React" data-quip="Component built. Ship it." style="--kc:#3B7EA8;"><span class="klabel">Q</span><svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="#fff" stroke-width="1.1"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></g><circle cx="12" cy="12" r="1.8" fill="#fff"/></svg><span class="kname">React</span></button>
-        <button class="key" data-key="W" data-tech="TypeScript" data-quip="Catching bugs before they catch you." style="--kc:#2E5C99;"><span class="klabel">W</span><span class="kbig">TS</span><span class="kname">TypeScript</span></button>
-        <button class="key" data-key="E" data-tech="JavaScript" data-quip="Still the backbone of the web, fr." style="--kc:#C79A1E;"><span class="klabel">E</span><span class="kbig">JS</span><span class="kname">JavaScript</span></button>
-        <button class="key" data-key="R" data-tech="Vue.js" data-quip="The reactive framework that just clicks." style="--kc:#2F8F63;"><span class="klabel">R</span><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 5l6 10 6-10h-3.2L12 11 8.2 5z" fill="#fff"/></svg><span class="kname">Vue.js</span></button>
-        <button class="key" data-key="T" data-tech="Laravel" data-quip="Elegant syntax, zero drama." style="--kc:#B8362A;"><span class="klabel">T</span><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 3h13l3 4-10 14L4 7z" fill="none" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="kname">Laravel</span></button>
-        <button class="key" data-key="Y" data-tech="PHP" data-quip="Older than you think, still shipping." style="--kc:#5B5E96;"><span class="klabel">Y</span><span class="kbig" style="font-size:.6rem;">PHP</span><span class="kname">PHP</span></button>
-        <button class="key" data-key="U" data-tech="MySQL" data-quip="Five years of ACID compliance and counting." style="--kc:#1E6E82;"><span class="klabel">U</span><span class="kbig" style="font-size:.55rem;">SQL</span><span class="kname">MySQL</span></button>
-        <button class="key" data-key="I" data-tech="Figma" data-quip="Where the pixels get their orders." style="--kc:#7A4FBF;"><span class="klabel">I</span><svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 2h4a4 4 0 010 8H8z" fill="#F24E1E"/><path d="M8 10h4a4 4 0 010 8 4 4 0 01-4-4z" fill="#A259FF"/><path d="M12 2h4a4 4 0 010 8h-4z" fill="#FF7262"/><path d="M12 10h4a4 4 0 110 8h-4z" fill="#1ABCFE"/><circle cx="8" cy="18" r="4" fill="#0ACF83"/></svg><span class="kname">Figma</span></button>
-        <button class="key" data-key="O" data-tech="WordPress" data-quip="Powers half the internet, quietly." style="--kc:#2B6E8F;"><span class="klabel">O</span><span class="kbig">W</span><span class="kname">WordPress</span></button>
-        <button class="key" data-key="P" data-tech="Git" data-quip="commit -m &quot;it works, don't ask how&quot;" style="--kc:#B8492E;"><span class="klabel">P</span><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="none" stroke="#fff" stroke-width="1.3"/><circle cx="8.5" cy="15.5" r="1.4" fill="#fff"/><circle cx="15.5" cy="8.5" r="1.4" fill="#fff"/><path d="M8.5 15.5V9a2 2 0 012-2h4" fill="none" stroke="#fff" stroke-width="1.3"/></svg><span class="kname">Git</span></button>
+        <button class="key" data-key="Q" data-tech="React" data-quip="Frontend for the Document Tracking System, PPA POS and BâyWatch." style="--kc:#3B7EA8;"><span class="klabel">Q</span><svg viewBox="0 0 24 24" width="22" height="22"><g fill="none" stroke="#fff" stroke-width="1.1"><ellipse cx="12" cy="12" rx="10" ry="4.2"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4.2" transform="rotate(120 12 12)"/></g><circle cx="12" cy="12" r="1.8" fill="#fff"/></svg><span class="kname">React</span></button>
+        <button class="key" data-key="W" data-tech="TypeScript" data-quip="" style="--kc:#2E5C99;"><span class="klabel">W</span><span class="kbig">TS</span><span class="kname">TypeScript</span></button>
+        <button class="key" data-key="E" data-tech="JavaScript" data-quip="" style="--kc:#C79A1E;"><span class="klabel">E</span><span class="kbig">JS</span><span class="kname">JavaScript</span></button>
+        <button class="key" data-key="R" data-tech="Vue.js" data-quip="" style="--kc:#2F8F63;"><span class="klabel">R</span><svg viewBox="0 0 24 24" width="20" height="20"><path d="M6 5l6 10 6-10h-3.2L12 11 8.2 5z" fill="#fff"/></svg><span class="kname">Vue.js</span></button>
+        <button class="key" data-key="T" data-tech="Laravel" data-quip="Backend for the Document Tracking System, PPA POS and BâyWatch." style="--kc:#B8362A;"><span class="klabel">T</span><svg viewBox="0 0 24 24" width="20" height="20"><path d="M4 3h13l3 4-10 14L4 7z" fill="none" stroke="#fff" stroke-width="1.3" stroke-linejoin="round"/></svg><span class="kname">Laravel</span></button>
+        <button class="key" data-key="Y" data-tech="PHP" data-quip="" style="--kc:#5B5E96;"><span class="klabel">Y</span><span class="kbig" style="font-size:.6rem;">PHP</span><span class="kname">PHP</span></button>
+        <button class="key" data-key="U" data-tech="MySQL" data-quip="Database for the Document Tracking System." style="--kc:#1E6E82;"><span class="klabel">U</span><span class="kbig" style="font-size:.55rem;">SQL</span><span class="kname">MySQL</span></button>
+        <button class="key" data-key="I" data-tech="Figma" data-quip="Where I mock up designs, like the booking app." style="--kc:#7A4FBF;"><span class="klabel">I</span><svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 2h4a4 4 0 010 8H8z" fill="#F24E1E"/><path d="M8 10h4a4 4 0 010 8 4 4 0 01-4-4z" fill="#A259FF"/><path d="M12 2h4a4 4 0 010 8h-4z" fill="#FF7262"/><path d="M12 10h4a4 4 0 110 8h-4z" fill="#1ABCFE"/><circle cx="8" cy="18" r="4" fill="#0ACF83"/></svg><span class="kname">Figma</span></button>
+        <button class="key" data-key="O" data-tech="WordPress" data-quip="" style="--kc:#2B6E8F;"><span class="klabel">O</span><span class="kbig">W</span><span class="kname">WordPress</span></button>
+        <button class="key" data-key="P" data-tech="Git" data-quip="" style="--kc:#B8492E;"><span class="klabel">P</span><svg viewBox="0 0 24 24" width="20" height="20"><circle cx="12" cy="12" r="9" fill="none" stroke="#fff" stroke-width="1.3"/><circle cx="8.5" cy="15.5" r="1.4" fill="#fff"/><circle cx="15.5" cy="8.5" r="1.4" fill="#fff"/><path d="M8.5 15.5V9a2 2 0 012-2h4" fill="none" stroke="#fff" stroke-width="1.3"/></svg><span class="kname">Git</span></button>
       </div>
       <div class="skb-row skb-row-2">
-        <button class="key" data-key="A" data-tech="HTML5" data-quip="The skeleton every system stands on." style="--kc:#B8562E;"><span class="klabel">A</span><span class="kbig">5</span><span class="kname">HTML5</span></button>
-        <button class="key" data-key="S" data-tech="CSS3" data-quip="Making the skeleton look good." style="--kc:#2E5C99;"><span class="klabel">S</span><span class="kbig">3</span><span class="kname">CSS3</span></button>
-        <button class="key" data-key="D" data-tech="Java" data-quip="Write once, deploy to a government server." style="--kc:#B8562E;"><span class="klabel">D</span><span class="kbig" style="font-size:.6rem;">JAVA</span><span class="kname">Java</span></button>
+        <button class="key" data-key="A" data-tech="HTML5" data-quip="" style="--kc:#B8562E;"><span class="klabel">A</span><span class="kbig">5</span><span class="kname">HTML5</span></button>
+        <button class="key" data-key="S" data-tech="CSS3" data-quip="" style="--kc:#2E5C99;"><span class="klabel">S</span><span class="kbig">3</span><span class="kname">CSS3</span></button>
+        <button class="key" data-key="D" data-tech="Java" data-quip="" style="--kc:#B8562E;"><span class="klabel">D</span><span class="kbig" style="font-size:.6rem;">JAVA</span><span class="kname">Java</span></button>
       </div>
       </div>
       <div class="skb-caption" id="skbCaption"></div>
@@ -388,23 +335,21 @@
 <section id="contact" class="contact">
   <div class="wrap">
     <div class="avail mono reveal"><span class="pulse"></span>AVAILABLE FOR NEW WORK</div>
-    <h2 class="contact-title" data-split="words">Let's build something <span class="serif ital">reliable.</span></h2>
+    <h2 class="contact-title" data-split="words">Want to work <span class="serif ital">together?</span></h2>
     <p class="contact-sub reveal">Open to full-stack roles and freelance system builds. The fastest way to reach me is email.</p>
-    <a href="mailto:monsaideveloper@gmail.com" class="contact-email reveal" data-cursor="Email">monsaideveloper@gmail.com<span class="arr">↗</span></a>
+    <a href="mailto:monsaideveloper@gmail.com" class="contact-email reveal">monsaideveloper@gmail.com<span class="arr">↗</span></a>
     <div class="contact-links reveal">
-      <button type="button" class="btn btn-ghost copy-email magnetic" data-email="monsaideveloper@gmail.com">Copy email<span class="copy-toast">Copied!</span></button>
-      <a href="tel:+639214758336" class="btn btn-ghost magnetic">+63 921 475 8336</a>
-      <a href="https://github.com/MonsaiDeveloper" class="btn btn-ghost magnetic" target="_blank" rel="noopener">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/paul-simon-soliano-37aa1632a/" class="btn btn-ghost magnetic" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <button type="button" class="btn btn-ghost copy-email" data-email="monsaideveloper@gmail.com">Copy email<span class="copy-toast">Copied!</span></button>
+      <a href="tel:+639214758336" class="btn btn-ghost">+63 921 475 8336</a>
+      <a href="https://github.com/MonsaiDeveloper" class="btn btn-ghost" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/paul-simon-soliano-37aa1632a/" class="btn btn-ghost" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
   </div>
-  <div class="giant-name serif ital" aria-hidden="true" data-giant>Monsai</div>
 </section>
 
 <footer>
   <div class="wrap">
     <span class="mono">© 2026 Paul Simon Soliano · Baybay City, PH</span>
-    <span class="mono">Built with React in mind, shipped as HTML</span>
   </div>
 </footer>
 
